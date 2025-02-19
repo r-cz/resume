@@ -569,10 +569,6 @@
 \newcommand*{\cvskill}[2]{
 	\skilltypestyle{#1} & \skillsetstyle{#2}\\
 }
-%Define an environment for cvproject
-\newenvironment{cvprojects}
-	\begin{•}
-
 % Define an environment for cvitems(for cventry)
 \newenvironment{cvitems}{
   \vspace{-4mm}
