@@ -1,63 +1,18 @@
 % !TeX root = resume.tex
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     Configuration
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Themes: Awesome-CV
-\documentclass[11pt, a4paper]{awesome-cv}
 
-%%% Override a directory location for fonts(default: 'fonts/')
-\fontdir[fonts/]
+%%% Import configuration
+\input{config}
 
-%%% Configure a directory location for sections
-\newcommand*{\sectiondir}{./}
+%%% Import personal information
+\input{personal-info}
 
-%%% Override color
-% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
-%                 awesome-nephritis, awesome-concrete, awesome-darknight
-%% Color for highlight
-% Define your custom color if you don't like awesome colors
-\colorlet{awesome}{awesome-darknight}
-%%% Override a separator for social informations in header(default: ' | ')
-%\headersocialsep[\quad\textbar\quad]
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     3rd party packages
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Needed to divide into several files
-\usepackage{import}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     Personal Data
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Essentials
-\name{Ryan Cruz}{}
-\address{Dallas, Texas}
-% \mobile{(770)-331-7558} 
-%%% Social
-\email{mail@ryancruz.com}
-\homepage{ryancruz.com}
-\linkedin{cruzryan}
-%%% Optionals
-\position{Cybersecurity Engineer {\enskip\cdotp\enskip} Identity \& Access Management}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     Content
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Make a footer for CV with three arguments(<left>, <center>, <right>)
-\makecvfooter
-  {\today}
-  {Ryan Anthony Cruz~~~·~~~Résumé}
-  {}
 \begin{document}
 %%% Make a header for CV with personal data
 \makecvheader
 
-%%% Import contents
+%%% Import contents in order of importance
+\import{\sectiondir}{summary.tex}
 \import{\sectiondir}{experience.tex}
-\import{\sectiondir}{projects.tex}
 \import{\sectiondir}{skills.tex}
 \import{\sectiondir}{education.tex}
 %\import{\sectiondir}{extracurricular.tex}
