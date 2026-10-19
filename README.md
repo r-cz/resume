@@ -36,7 +36,7 @@ This writes `resume.pdf`. `latexmk -c` cleans up the build files. In VS Code, th
 | `resume.tex` | Entry point; sets section order |
 | `config.tex` | Paper size, colors, layout overrides, `\tbd` |
 | `personal-info.tex` | Header and footer |
-| `summary.tex`, `experience.tex`, `skills.tex`, `education.tex` | Sections |
+| `summary.tex`, `experience.tex`, `projects.tex`, `skills.tex`, `education.tex` | Sections |
 | `awesome-cv.cls`, `fontawesome.sty`, `fonts/` | Vendored template and fonts |
 
 To change the accent color, edit `\colorlet{awesome}{...}` in `config.tex` (`awesome-darknight`, `awesome-skyblue`, `awesome-emerald`, and so on).
