@@ -14,10 +14,6 @@ latexmk
 
 This writes `resume.pdf`. `latexmk -c` cleans up the build files. In VS Code, the LaTeX Workshop extension uses the same `latexmk` setup and rebuilds on save.
 
-### Private details
-
-The phone number isn't committed because this repo is public. To include it in a local build, copy `private.example.tex` to `private.tex` (git-ignored) and fill it in. Builds without `private.tex`, including CI, leave it out.
-
 ### Placeholders
 
 `\tbd{...}` marks details still to fill in. It renders in red so it can't be missed, and CI refuses to publish a release while any remain.

@@ -12,8 +12,5 @@ build/
 # The PDF is built by CI and attached to GitHub Releases
 *.pdf
 
-# Private details kept out of the public repo (see private.example.tex)
-private.tex
-
 # macOS
 .DS_Store
