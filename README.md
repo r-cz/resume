@@ -1,66 +1,46 @@
-# LaTeX Resume
+# Resume
 
-This resume is built using the [Awesome-CV](https://github.com/posquit0/Awesome-CV) template, which provides a modern and professional LaTeX resume design.
+My resume, built with LaTeX on the [Awesome-CV](https://github.com/posquit0/Awesome-CV) template.
 
-## Getting Started
+The latest PDF is attached to the newest [GitHub Release](https://github.com/r-cz/resume/releases/latest).
 
-This project uses VS Code with the LaTeX Workshop extension for seamless compilation and preview. Here's how to set it up:
+## Building locally
 
-1. Install VS Code from https://code.visualstudio.com
-2. Install the LaTeX Workshop extension in VS Code
-3. Install a complete TeX distribution:
-   - For macOS: Install MacTeX from https://tug.org/mactex/
-   - For Windows: Install MiKTeX from https://miktex.org
-   - For Linux: Install TeX Live using your package manager
+Requires a TeX distribution with XeLaTeX and `latexmk` ([MacTeX](https://tug.org/mactex/) on macOS, TeX Live on Linux).
 
-## Building the Resume
+```bash
+latexmk
+```
 
-Once you have the prerequisites installed, you can build the resume directly in VS Code:
+This writes `resume.pdf`. `latexmk -c` cleans up the build files. In VS Code, the LaTeX Workshop extension uses the same `latexmk` setup and rebuilds on save.
 
-1. Open the project folder in VS Code
-2. Open `resume.tex`
-3. Press `⌘ + S` (macOS) or `Ctrl + S` (Windows/Linux) to save, which will trigger automatic compilation
-4. The PDF preview will appear in a new tab within VS Code
+### Private details
 
-Alternatively, you can click the "Build LaTeX" button in VS Code's toolbar (usually looks like a play button).
+The phone number isn't committed because this repo is public. To include it in a local build, copy `private.example.tex` to `private.tex` (git-ignored) and fill it in. Builds without `private.tex`, including CI, leave it out.
 
-## Project Structure
+### Placeholders
 
-- `resume.tex` - Main resume file containing personal information and section imports
-- `awesome-cv.cls` - Template class file defining the resume's style and layout
-- `fontawesome.sty` - Font Awesome icons style file
-- Content sections:
-  - `education.tex` - Educational background
-  - `experience.tex` - Work experience
-  - `projects.tex` - Notable projects
-  - `skills.tex` - Technical and professional skills
+`\tbd{...}` marks details still to fill in. It renders in red so it can't be missed, and CI refuses to publish a release while any remain.
 
-## Fonts
+## Publishing a new version
 
-This template uses three main fonts:
-- Roboto (for headers)
-- Source Sans Pro (for body text)
-- Font Awesome (for icons)
+1. Open a PR with the changes. CI builds the PDF and attaches it to the run as an artifact to review.
+2. After merging, tag the commit and push the tag:
 
-These fonts are included in the `fonts/` directory, so no additional font installation is needed.
+   ```bash
+   git tag v2026.10 && git push origin v2026.10
+   ```
 
-## Customization
+   CI builds the PDF and attaches it to a GitHub Release for that tag.
 
-The resume's appearance can be customized in several ways:
+## Layout
 
-- Colors: Change the `\colorlet{awesome}{...}` command in `resume.tex` to use a different color scheme. Available options include:
-  - awesome-emerald
-  - awesome-skyblue
-  - awesome-red
-  - awesome-pink
-  - awesome-orange
-  - awesome-nephritis
-  - awesome-concrete
-  - awesome-darknight (current)
+| File | Contents |
+| --- | --- |
+| `resume.tex` | Entry point; sets section order |
+| `config.tex` | Paper size, colors, layout overrides, `\tbd` |
+| `personal-info.tex` | Header and footer |
+| `summary.tex`, `experience.tex`, `skills.tex`, `education.tex` | Sections |
+| `awesome-cv.cls`, `fontawesome.sty`, `fonts/` | Vendored template and fonts |
 
-- Layout: Adjust margins and spacing in `awesome-cv.cls`
-- Content: Modify the individual `.tex` files in the root directory
-
-## Contributing
-
-This is a personal resume template, but feel free to use it as a starting point for your own resume. If you find any bugs or have suggestions for improvements, please open an issue.
+To change the accent color, edit `\colorlet{awesome}{...}` in `config.tex` (`awesome-darknight`, `awesome-skyblue`, `awesome-emerald`, and so on).

@@ -4,6 +4,9 @@
 %%% Essentials
 \name{Ryan Cruz}{}
 \address{Dallas, Texas}
+%%% Phone number and other private details live in private.tex (git-ignored).
+%%% Copy private.example.tex to private.tex to include them in local builds.
+\IfFileExists{private.tex}{\input{private}}{}
 %%% Social
 \email{mail@ryancruz.com}
 \homepage{ryancruz.com}
@@ -13,6 +16,6 @@
 
 %%% Make a footer for CV with three arguments(<left>, <center>, <right>)
 \makecvfooter
-  {\today}
-  {Ryan Anthony Cruz~~~·~~~Résumé}
-  {\thepage}
+  {}
+  {Ryan Cruz~~~·~~~Résumé}
+  {}
