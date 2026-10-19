@@ -3,7 +3,7 @@
 %     Configuration
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Themes: Awesome-CV
-\documentclass[11pt, a4paper]{awesome-cv}
+\documentclass[11pt, letterpaper]{awesome-cv}
 
 %%% Override a directory location for fonts(default: 'fonts/')
 \fontdir[fonts/]
@@ -27,6 +27,47 @@
 %%% Needed to divide into several files
 \usepackage{import}
 
-%%% Custom commands for consistent formatting
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Layout overrides
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Summary paragraph in the body font (this class version has no cvparagraph)
+\newenvironment{cvsummary}{%
+  \par\noindent\begin{minipage}{\textwidth}
+  \fontsize{10pt}{1.2em}\bodyfontlight\upshape\color{text}\selectfont
+}{%
+  \end{minipage}\par\vspace{1mm}
+}
+
+%%% Skills table sized for the page width (the class hard-codes a 15.2cm column,
+%%% which overflows the page once a skill label is longer than a couple of words)
+\renewenvironment{cvskills}{%
+  \begin{center}
+    \setlength\tabcolsep{1ex}
+    \setlength{\extrarowheight}{0pt}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l L{\dimexpr\textwidth-3.6cm\relax}}
+}{%
+    \end{tabular*}
+  \end{center}
+}
+
+%%% A little breathing room between experience entries
+\renewenvironment{cvitems}{%
+  \vspace{-4mm}
+  \begin{justify}
+  \begin{itemize}[leftmargin=2ex, nosep, noitemsep]
+    \setlength{\parskip}{0pt}
+    \renewcommand{\labelitemi}{\bullet}
+}{%
+  \end{itemize}
+  \end{justify}
+  \vspace{0.5mm}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Custom commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\tech}[1]{\textbf{#1}}
 \newcommand{\project}[1]{\textit{#1}}
+%%% Placeholder for details still to be filled in; renders in red so it can't be missed.
+%%% CI refuses to publish a release while any \tbd remains.
+\newcommand{\tbd}[1]{{\color{red}\textbf{[#1]}}}
